@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://80q6tv24ik04"]
+
+[ext_resource type="Texture2D" uid="uid://b5tf50d67phyn" path="res://Assets/kenney_pixel-platformer/Characters/character_0023.png" id="1_p021v"]
+[ext_resource type="Texture2D" uid="uid://uuihird03hni" path="res://Assets/kenney_pixel-platformer/Characters/character_0021.png" id="2_7lrcu"]
+[ext_resource type="Texture2D" uid="uid://db8dk6g0cxgrp" path="res://Assets/kenney_pixel-platformer/Characters/character_0022.png" id="3_562bt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq2j"]
+size = Vector2(22, 21)
+
+[sub_resource type="Animation" id="Animation_gfohq"]
+resource_name = "active"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_7lrcu"), ExtResource("3_562bt")]
+}
+
+[sub_resource type="Animation" id="Animation_mx0qd"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_p021v")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8p2x"]
+_data = {
+"active": SubResource("Animation_gfohq"),
+"dead": SubResource("Animation_mx0qd")
+}
+
+[node name="BigBlue_Enemy" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_p021v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_3qq2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+root_node = NodePath("../..")
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h8p2x")
+}

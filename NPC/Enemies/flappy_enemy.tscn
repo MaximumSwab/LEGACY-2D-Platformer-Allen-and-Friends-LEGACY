@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlgdh0pujfka4"]
+
+[ext_resource type="Texture2D" uid="uid://ci2hguv5ef4io" path="res://Assets/kenney_pixel-platformer/Characters/character_0026.png" id="1_ye5o5"]
+[ext_resource type="Texture2D" uid="uid://srt7pj1vfcvd" path="res://Assets/kenney_pixel-platformer/Characters/character_0024.png" id="2_j71vq"]
+[ext_resource type="Texture2D" uid="uid://bmodtad6ytcn4" path="res://Assets/kenney_pixel-platformer/Characters/character_0025.png" id="3_j3q7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq2j"]
+size = Vector2(8, 8)
+
+[sub_resource type="Animation" id="Animation_b6da6"]
+resource_name = "active"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_j71vq"), ExtResource("3_j3q7t"), ExtResource("1_ye5o5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8p2x"]
+_data = {
+"active": SubResource("Animation_b6da6")
+}
+
+[node name="NPC" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_j3q7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3qq2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+root_node = NodePath("../..")
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h8p2x")
+}

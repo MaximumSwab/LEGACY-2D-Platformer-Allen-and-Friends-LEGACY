@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=3 uid="uid://pnbki0mxad31"]
+
+[ext_resource type="Texture2D" uid="uid://x0gpdvw2n1ob" path="res://Assets/kenney_pixel-platformer/Characters/character_0001.png" id="1_bmqei"]
+[ext_resource type="Script" path="res://Player/CharacterBody2D.gd" id="1_h2ve7"]
+[ext_resource type="Texture2D" uid="uid://bte0vkgk1jr3" path="res://Assets/kenney_pixel-platformer/Characters/character_0000.png" id="2_3c1qv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxbfj"]
+size = Vector2(20, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05h8o"]
+size = Vector2(16, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfdnb"]
+size = Vector2(20, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g10c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq2j"]
+size = Vector2(33, 23)
+
+[sub_resource type="Animation" id="Animation_phu41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("1_bmqei")]
+}
+
+[sub_resource type="Animation" id="Animation_x1fb5"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2_3c1qv")]
+}
+
+[sub_resource type="Animation" id="Animation_mnt7n"]
+resource_name = "jump"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("1_bmqei")]
+}
+
+[sub_resource type="Animation" id="Animation_qbvb7"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_3c1qv"), ExtResource("1_bmqei")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8p2x"]
+_data = {
+"RESET": SubResource("Animation_phu41"),
+"idle": SubResource("Animation_x1fb5"),
+"jump": SubResource("Animation_mnt7n"),
+"run": SubResource("Animation_qbvb7")
+}
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_h2ve7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+scale = Vector2(0.7, 1)
+shape = SubResource("RectangleShape2D_yxbfj")
+
+[node name="GroundCheckArea" type="Area2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(0, 11)
+
+[node name="GroundCheck" type="CollisionShape2D" parent="CharacterBody2D/GroundCheckArea"]
+shape = SubResource("RectangleShape2D_05h8o")
+debug_color = Color(0.752941, 0.423529, 0.47451, 0.419608)
+
+[node name="HurtDetection" type="Area2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="HurtBoxHead" type="CollisionShape2D" parent="CharacterBody2D/HurtDetection"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_bfdnb")
+debug_color = Color(0.921569, 0.239216, 0.364706, 0.419608)
+
+[node name="HurtBoxFeet" type="CollisionShape2D" parent="CharacterBody2D/HurtDetection"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_bfdnb")
+debug_color = Color(0.921569, 0.239216, 0.364706, 0.419608)
+
+[node name="HitDetection" type="Area2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D/HitDetection"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8g10c")
+debug_color = Color(0.643137, 0.396078, 0.870588, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 1
+texture = ExtResource("1_bmqei")
+
+[node name="ItemPickUpArea" type="Area2D" parent="CharacterBody2D/Sprite2D"]
+visible = false
+
+[node name="ItemPickUpBox" type="CollisionShape2D" parent="CharacterBody2D/Sprite2D/ItemPickUpArea"]
+position = Vector2(-6.5, 0.5)
+shape = SubResource("RectangleShape2D_3qq2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Sprite2D"]
+root_node = NodePath("../../..")
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h8p2x")
+}
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)

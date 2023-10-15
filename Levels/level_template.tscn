@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://de40g5y6yiwqt"]
+
+[ext_resource type="PackedScene" uid="uid://b2gb5uoi6768f" path="res://Resources/TileMap/tile_maps.tscn" id="1_48jla"]
+[ext_resource type="PackedScene" uid="uid://pnbki0mxad31" path="res://Player/player.tscn" id="2_r2aqy"]
+[ext_resource type="PackedScene" uid="uid://d2agvxk0mpi7p" path="res://Player/player_hud.tscn" id="3_umil2"]
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="TileMaps" parent="." instance=ExtResource("1_48jla")]
+
+[node name="Player" parent="." instance=ExtResource("2_r2aqy")]
+position = Vector2(80, 87)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_umil2")]

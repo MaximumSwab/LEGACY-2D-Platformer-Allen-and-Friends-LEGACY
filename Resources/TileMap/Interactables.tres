@@ -1,0 +1,47 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://7nk1c66xqc8g"]
+
+[ext_resource type="Texture2D" uid="uid://cfo3t1xlm1phl" path="res://Assets/kenney_pixel-platformer/Tilemap/tiles.png" id="1_whtbe"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcohu"]
+texture = ExtResource("1_whtbe")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(18, 18)
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+8:7/0 = 0
+11:7/animation_speed = 5.0
+11:7/animation_frame_0/duration = 1.0
+11:7/animation_frame_1/duration = 1.0
+11:7/0 = 0
+9:7/0 = 0
+7:3/0 = 0
+11:2/0 = 0
+11:3/0 = 0
+12:4/0 = 0
+11:4/0 = 0
+10:4/0 = 0
+9:3/0 = 0
+9:4/0 = 0
+9:5/0 = 0
+11:6/0 = 0
+11:5/animation_speed = 4.0
+11:5/animation_frame_0/duration = 1.0
+11:5/animation_frame_1/duration = 1.0
+11:5/0 = 0
+7:1/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+10:5/0 = 0
+10:6/0 = 0
+10:7/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+
+[resource]
+tile_size = Vector2i(18, 18)
+sources/0 = SubResource("TileSetAtlasSource_kcohu")

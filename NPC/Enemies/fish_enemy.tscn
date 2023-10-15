@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu2ddc0h8fccd"]
+
+[ext_resource type="Texture2D" uid="uid://5nf2odb8lsoi" path="res://Assets/kenney_pixel-platformer/Characters/character_0012.png" id="1_toutt"]
+[ext_resource type="Texture2D" uid="uid://b5dfmj1axrrf5" path="res://Assets/kenney_pixel-platformer/Characters/character_0011.png" id="2_8pr1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq2j"]
+size = Vector2(9, 12)
+
+[sub_resource type="Animation" id="Animation_p8sfv"]
+resource_name = "active"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_8pr1k"), ExtResource("1_toutt")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8p2x"]
+_data = {
+"active": SubResource("Animation_p8sfv")
+}
+
+[node name="NPC" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_toutt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_3qq2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+root_node = NodePath("../..")
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h8p2x")
+}
