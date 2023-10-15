@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://pnbki0mxad31"]
 
-[ext_resource type="Texture2D" uid="uid://x0gpdvw2n1ob" path="res://Assets/kenney_pixel-platformer/Characters/character_0001.png" id="1_bmqei"]
 [ext_resource type="Script" path="res://Player/CharacterBody2D.gd" id="1_h2ve7"]
-[ext_resource type="Texture2D" uid="uid://bte0vkgk1jr3" path="res://Assets/kenney_pixel-platformer/Characters/character_0000.png" id="2_3c1qv"]
+[ext_resource type="Texture2D" uid="uid://x0gpdvw2n1ob" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0001.png" id="2_jlrla"]
+[ext_resource type="Texture2D" uid="uid://bte0vkgk1jr3" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0000.png" id="3_ihcov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxbfj"]
 size = Vector2(20, 22)
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("1_bmqei")]
+"values": [ExtResource("2_jlrla")]
 }
 
 [sub_resource type="Animation" id="Animation_x1fb5"]
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("2_3c1qv")]
+"values": [ExtResource("3_ihcov")]
 }
 
 [sub_resource type="Animation" id="Animation_mnt7n"]
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("1_bmqei")]
+"values": [ExtResource("2_jlrla")]
 }
 
 [sub_resource type="Animation" id="Animation_qbvb7"]
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_3c1qv"), ExtResource("1_bmqei")]
+"values": [ExtResource("3_ihcov"), ExtResource("2_jlrla")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h8p2x"]
@@ -131,7 +131,7 @@ debug_color = Color(0.643137, 0.396078, 0.870588, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 z_index = 1
-texture = ExtResource("1_bmqei")
+texture = ExtResource("2_jlrla")
 
 [node name="ItemPickUpArea" type="Area2D" parent="CharacterBody2D/Sprite2D"]
 visible = false

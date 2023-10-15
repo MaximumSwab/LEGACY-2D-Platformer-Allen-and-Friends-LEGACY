@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2agvxk0mpi7p"]
 
-[ext_resource type="Texture2D" uid="uid://cxrq1nrriusd1" path="res://Assets/kenney_pixel-platformer/Tiles/tile_0151.png" id="1_w0bwl"]
-[ext_resource type="Texture2D" uid="uid://dy0r8e6gfjgj4" path="res://Assets/kenney_pixel-platformer/Tiles/tile_0067.png" id="2_hs1l6"]
+[ext_resource type="Texture2D" uid="uid://cxrq1nrriusd1" path="res://Imported_Assets/kenney_pixel-platformer/Tiles/tile_0151.png" id="1_jkbvf"]
+[ext_resource type="Texture2D" uid="uid://dy0r8e6gfjgj4" path="res://Imported_Assets/kenney_pixel-platformer/Tiles/tile_0067.png" id="2_1c2ug"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -17,7 +17,7 @@ grow_vertical = 2
 layout_mode = 2
 offset_right = 18.0
 offset_bottom = 18.0
-texture = ExtResource("1_w0bwl")
+texture = ExtResource("1_jkbvf")
 
 [node name="x" type="Label" parent="PlayerHud/Coins"]
 layout_mode = 0
@@ -44,4 +44,4 @@ layout_mode = 2
 offset_top = 19.0
 offset_right = 18.0
 offset_bottom = 37.0
-texture = ExtResource("2_hs1l6")
+texture = ExtResource("2_1c2ug")

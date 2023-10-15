@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bu2ddc0h8fccd"]
 
-[ext_resource type="Texture2D" uid="uid://5nf2odb8lsoi" path="res://Assets/kenney_pixel-platformer/Characters/character_0012.png" id="1_toutt"]
-[ext_resource type="Texture2D" uid="uid://b5dfmj1axrrf5" path="res://Assets/kenney_pixel-platformer/Characters/character_0011.png" id="2_8pr1k"]
+[ext_resource type="Texture2D" uid="uid://5nf2odb8lsoi" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0012.png" id="1_toutt"]
+[ext_resource type="Texture2D" uid="uid://b5dfmj1axrrf5" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0011.png" id="2_8pr1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq2j"]
 size = Vector2(9, 12)

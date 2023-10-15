@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cc3fy76d76iyu"]
 
-[ext_resource type="Texture2D" uid="uid://cpp2nmjq1yiur" path="res://Assets/kenney_pixel-platformer/Characters/character_0017.png" id="1_p3w5s"]
-[ext_resource type="Texture2D" uid="uid://dp2re2pvdgkd3" path="res://Assets/kenney_pixel-platformer/Characters/character_0015.png" id="2_w5mfn"]
-[ext_resource type="Texture2D" uid="uid://bk08rltxc086a" path="res://Assets/kenney_pixel-platformer/Characters/character_0016.png" id="3_sa83s"]
+[ext_resource type="Texture2D" uid="uid://cpp2nmjq1yiur" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0017.png" id="1_p3w5s"]
+[ext_resource type="Texture2D" uid="uid://dp2re2pvdgkd3" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0015.png" id="2_w5mfn"]
+[ext_resource type="Texture2D" uid="uid://bk08rltxc086a" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0016.png" id="3_sa83s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq2j"]
 size = Vector2(15, 11)
