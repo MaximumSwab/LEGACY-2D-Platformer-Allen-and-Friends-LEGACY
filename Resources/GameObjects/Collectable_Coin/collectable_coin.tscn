@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://q2sm60wygxk1"]
+[gd_scene load_steps=7 format=3 uid="uid://q2sm60wygxk1"]
 
-[ext_resource type="Texture2D" uid="uid://cfo3t1xlm1phl" path="res://Imported_Assets/kenney_pixel-platformer/Tilemap/tiles.png" id="1_gjneq"]
+[ext_resource type="Script" path="res://Resources/GameObjects/Collectable_Coin/collectable_coin.gd" id="1_fjho4"]
+[ext_resource type="Texture2D" uid="uid://cfo3t1xlm1phl" path="res://Imported_Assets/kenney_pixel-platformer/Tilemap/tiles.png" id="2_hxnc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e28ea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fypbc"]
-atlas = ExtResource("1_gjneq")
+atlas = ExtResource("2_hxnc8")
 region = Rect2(220, 140, 18, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tam0w"]
-atlas = ExtResource("1_gjneq")
+atlas = ExtResource("2_hxnc8")
 region = Rect2(240, 140, 18, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8882b"]
@@ -27,8 +28,10 @@ animations = [{
 }]
 
 [node name="Collectable_Coin" type="Node2D"]
+script = ExtResource("1_fjho4")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.5, 0.5)
@@ -36,4 +39,8 @@ shape = SubResource("RectangleShape2D_e28ea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8882b")
-frame_progress = 0.73887
+autoplay = "default"
+frame = 1
+frame_progress = 0.38574
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

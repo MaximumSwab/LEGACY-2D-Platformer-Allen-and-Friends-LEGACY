@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -260.0
 # Flags
 var has_jumped: bool = false
 
+var coins_collected: int = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -14,6 +16,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	print(coins_collected)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -38,4 +41,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
+#Called by collectable_coin.gd
+func collect_coin():
+	++coins_collected
+	pass

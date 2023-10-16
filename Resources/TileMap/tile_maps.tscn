@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2gb5uoi6768f"]
+[gd_scene load_steps=5 format=3 uid="uid://b2gb5uoi6768f"]
 
 [ext_resource type="TileSet" uid="uid://p2vr2so6oplv" path="res://Resources/TileMap/Background.tres" id="1_6hq4u"]
-[ext_resource type="Script" path="res://Resources/TileMap/TileMap.gd" id="1_pophy"]
 [ext_resource type="TileSet" uid="uid://cfcnsmdbhv6yu" path="res://Resources/TileMap/Terrain.tres" id="1_xgjvx"]
 [ext_resource type="TileSet" uid="uid://ccufismvo3pq0" path="res://Resources/TileMap/BottomOfLevel.tres" id="3_q4jda"]
 [ext_resource type="TileSet" uid="uid://55uoyjyodtoi" path="res://Resources/TileMap/Hazzards.tres" id="5_n4g8y"]
 
 [node name="TileMaps" type="Node2D"]
-script = ExtResource("1_pophy")
 
 [node name="BackGround" type="TileMap" parent="."]
 tile_set = ExtResource("1_6hq4u")
