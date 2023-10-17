@@ -15,4 +15,4 @@ position = Vector2(80, 87)
 [node name="Collectable_Coin" parent="." instance=ExtResource("3_s66g8")]
 position = Vector2(274, 161)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_umil2")]
+[node name="PlayerHud" parent="." instance=ExtResource("3_umil2")]

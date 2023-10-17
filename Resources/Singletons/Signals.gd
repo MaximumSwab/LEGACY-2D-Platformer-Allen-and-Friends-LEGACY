@@ -1,3 +1,4 @@
 extends Node
 
-signal ItemCollected
+signal coin_collected
+signal hazzard_contact

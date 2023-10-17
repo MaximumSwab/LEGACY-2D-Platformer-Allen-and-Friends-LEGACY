@@ -98,7 +98,7 @@ script = ExtResource("1_h2ve7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 1)
-scale = Vector2(0.7, 1)
+scale = Vector2(0.62, 1)
 shape = SubResource("RectangleShape2D_yxbfj")
 
 [node name="GroundCheckArea" type="Area2D" parent="CharacterBody2D"]
@@ -111,6 +111,8 @@ debug_color = Color(0.752941, 0.423529, 0.47451, 0.419608)
 
 [node name="HurtDetection" type="Area2D" parent="CharacterBody2D"]
 visible = false
+collision_layer = 0
+collision_mask = 0
 
 [node name="HurtBoxHead" type="CollisionShape2D" parent="CharacterBody2D/HurtDetection"]
 position = Vector2(0, -10)
@@ -123,7 +125,8 @@ shape = SubResource("RectangleShape2D_bfdnb")
 debug_color = Color(0.921569, 0.239216, 0.364706, 0.419608)
 
 [node name="HitDetection" type="Area2D" parent="CharacterBody2D"]
-visible = false
+collision_layer = 0
+collision_mask = 256
 
 [node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D/HitDetection"]
 position = Vector2(0, -1)
@@ -150,3 +153,5 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3, 3)
+
+[connection signal="body_shape_entered" from="CharacterBody2D/HitDetection" to="CharacterBody2D" method="_on_hit_detection_body_shape_entered"]
