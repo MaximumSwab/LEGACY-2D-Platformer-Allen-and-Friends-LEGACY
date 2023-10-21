@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2agvxk0mpi7p"]
+[gd_scene load_steps=5 format=3 uid="uid://d2agvxk0mpi7p"]
 
 [ext_resource type="Texture2D" uid="uid://cxrq1nrriusd1" path="res://Imported_Assets/kenney_pixel-platformer/Tiles/tile_0151.png" id="1_jkbvf"]
 [ext_resource type="Script" path="res://Player/player_hud.gd" id="1_pq040"]
 [ext_resource type="Texture2D" uid="uid://dy0r8e6gfjgj4" path="res://Imported_Assets/kenney_pixel-platformer/Tiles/tile_0067.png" id="2_1c2ug"]
-[ext_resource type="Texture2D" uid="uid://bd58ucbq05tr5" path="res://Imported_Assets/kenney_pixel-platformer/Tiles/tile_0044.png" id="2_e4n5e"]
-[ext_resource type="Script" path="res://Player/HealthPoints.gd" id="2_wvklw"]
+[ext_resource type="PackedScene" uid="uid://blktoi2iki3cq" path="res://Resources/GUI/hearts_container.tscn" id="4_x70w1"]
 
 [node name="PlayerHud" type="CanvasLayer"]
 script = ExtResource("1_pq040")
@@ -17,60 +16,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HealthPoints" type="Container" parent="HUD"]
+[node name="Collectables" type="Panel" parent="HUD"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_wvklw")
+offset_right = 64.0
+offset_bottom = 48.0
 
-[node name="Heart1" type="TextureRect" parent="HUD/HealthPoints"]
-layout_mode = 2
-texture = ExtResource("2_e4n5e")
-
-[node name="Heart2" type="TextureRect" parent="HUD/HealthPoints"]
-layout_mode = 2
-texture = ExtResource("2_e4n5e")
-
-[node name="Heart3" type="TextureRect" parent="HUD/HealthPoints"]
-layout_mode = 2
-texture = ExtResource("2_e4n5e")
-
-[node name="Coins" type="TextureRect" parent="HUD"]
-layout_mode = 2
+[node name="Coins" type="TextureRect" parent="HUD/Collectables"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 texture = ExtResource("1_jkbvf")
 
-[node name="x" type="Label" parent="HUD/Coins"]
+[node name="x" type="Label" parent="HUD/Collectables/Coins"]
 layout_mode = 0
 offset_left = 24.0
+offset_top = 2.95639e-05
 offset_right = 34.0
 offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="CoinCounter" type="Label" parent="HUD/Coins"]
+[node name="CoinCounter" type="Label" parent="HUD/Collectables/Coins"]
 layout_mode = 0
-offset_left = 40.0
-offset_right = 61.0
+offset_left = 39.9999
+offset_top = 2.95639e-05
+offset_right = 60.9999
 offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "##"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Diamonds" type="TextureRect" parent="HUD"]
-layout_mode = 2
+[node name="Diamonds" type="TextureRect" parent="HUD/Collectables"]
+layout_mode = 0
 offset_top = 24.0
 offset_right = 24.0
 offset_bottom = 48.0
 texture = ExtResource("2_1c2ug")
 
-[node name="x" type="Label" parent="HUD/Diamonds"]
+[node name="x" type="Label" parent="HUD/Collectables/Diamonds"]
 layout_mode = 0
 offset_left = 24.0
+offset_top = 3.05176e-05
 offset_right = 34.0
 offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -78,12 +70,18 @@ text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DiamondCounter" type="Label" parent="HUD/Diamonds"]
+[node name="DiamondCounter" type="Label" parent="HUD/Collectables/Diamonds"]
 layout_mode = 0
-offset_left = 40.0
-offset_right = 61.0
+offset_left = 39.9999
+offset_top = 3.05176e-05
+offset_right = 60.9999
 offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "##"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HeartsContainer" parent="HUD" instance=ExtResource("4_x70w1")]
+layout_mode = 0
+offset_top = 48.0
+offset_bottom = 88.0

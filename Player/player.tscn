@@ -126,7 +126,7 @@ debug_color = Color(0.921569, 0.239216, 0.364706, 0.419608)
 
 [node name="HitDetection" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 256
+collision_mask = 512
 
 [node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D/HitDetection"]
 position = Vector2(0, -1)

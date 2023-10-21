@@ -37,8 +37,5 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
-
-
 func _on_hit_detection_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	Signals.hazzard_contact.emit()

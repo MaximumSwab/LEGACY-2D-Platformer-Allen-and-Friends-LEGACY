@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://p68uqveixm0s"]
+
+[ext_resource type="Texture2D" uid="uid://s4rsjy6r1v7" path="res://Resources/Sprites/Heart_Full.tres" id="1_7w80h"]
+[ext_resource type="Script" path="res://Resources/GUI/heart_Gui.gd" id="1_hnhlb"]
+[ext_resource type="Texture2D" uid="uid://o850d3t3rw42" path="res://Resources/Sprites/Heart_Half.tres" id="2_k3nxr"]
+[ext_resource type="Texture2D" uid="uid://ds3gwa11tbhmh" path="res://Resources/Sprites/Heart_Empty.tres" id="3_it1x8"]
+
+[sub_resource type="Animation" id="Animation_m2ltf"]
+resource_name = "health_status"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart_GUI/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_7w80h"), ExtResource("2_k3nxr"), ExtResource("3_it1x8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tfsd6"]
+_data = {
+"health_status": SubResource("Animation_m2ltf")
+}
+
+[node name="Heart_GUI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_hnhlb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.888889, 0.888889)
+texture = ExtResource("1_7w80h")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tfsd6")
+}
