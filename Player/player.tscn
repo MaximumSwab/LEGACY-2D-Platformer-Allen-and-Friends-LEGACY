@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://pnbki0mxad31"]
 
-[ext_resource type="Script" path="res://Player/CharacterBody2D.gd" id="1_h2ve7"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_aig0m"]
 [ext_resource type="Texture2D" uid="uid://x0gpdvw2n1ob" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0001.png" id="2_jlrla"]
 [ext_resource type="Texture2D" uid="uid://bte0vkgk1jr3" path="res://Imported_Assets/kenney_pixel-platformer/Characters/character_0000.png" id="3_ihcov"]
 
@@ -94,7 +94,7 @@ _data = {
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 257
-script = ExtResource("1_h2ve7")
+script = ExtResource("1_aig0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 1)

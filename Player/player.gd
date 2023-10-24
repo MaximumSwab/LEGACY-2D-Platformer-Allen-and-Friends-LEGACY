@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var maxHealth: int = 3
+
 const SPEED = 100.0
 const JUMP_VELOCITY = -260.0
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Resources/GUI/hearts_container.gd" id="1_h3pnf"]
 
 [node name="HeartsContainer" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 48.0
+offset_right = 24.0
+offset_bottom = 72.0
 script = ExtResource("1_h3pnf")

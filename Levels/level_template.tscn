@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://de40g5y6yiwqt"]
+[gd_scene load_steps=7 format=3 uid="uid://de40g5y6yiwqt"]
 
 [ext_resource type="PackedScene" uid="uid://b2gb5uoi6768f" path="res://Resources/TileMap/tile_maps.tscn" id="1_48jla"]
+[ext_resource type="Script" path="res://Levels/level_template.gd" id="1_ayo25"]
 [ext_resource type="PackedScene" uid="uid://pnbki0mxad31" path="res://Player/player.tscn" id="2_r2aqy"]
 [ext_resource type="PackedScene" uid="uid://q2sm60wygxk1" path="res://Resources/GameObjects/Collectable_Coin/collectable_coin.tscn" id="3_s66g8"]
 [ext_resource type="PackedScene" uid="uid://d2agvxk0mpi7p" path="res://Player/player_hud.tscn" id="3_umil2"]
+[ext_resource type="PackedScene" uid="uid://blktoi2iki3cq" path="res://Resources/GUI/hearts_container.tscn" id="6_iwcv7"]
 
 [node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_ayo25")
 
 [node name="TileMaps" parent="." instance=ExtResource("1_48jla")]
 
 [node name="Player" parent="." instance=ExtResource("2_r2aqy")]
-position = Vector2(80, 87)
+position = Vector2(40, 109)
 
 [node name="Collectable_Coin" parent="." instance=ExtResource("3_s66g8")]
 position = Vector2(274, 161)
 
 [node name="PlayerHud" parent="." instance=ExtResource("3_umil2")]
+
+[node name="HeartsContainer" parent="PlayerHud" instance=ExtResource("6_iwcv7")]
