@@ -19,13 +19,12 @@ func setMaxHearts(max: int):
 		add_child(heart)
 
 func updateHearts():
-	var hearts = get_children()
-	
-	if hitPoints < 0:
-		heartCounter -= 1
-		hitPoints = 2
-	
+	var hearts = get_children()	
 	hearts[heartCounter].update(hitPoints)
 	print("Debug heartCounter " + str(heartCounter) + " Debug hitPoints " + str(hitPoints))
 
-func LoseHitPoints() -> void: hitPoints -= 1
+func LoseHitPoints() -> void: 
+	hitPoints -= 1	
+	if hitPoints < 0:
+		heartCounter -= 1
+		hitPoints = 2

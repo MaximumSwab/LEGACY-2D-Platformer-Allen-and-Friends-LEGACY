@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 func update(heartStatus: int):	
 	if heartStatus == 2:
-		$Sprite2D.texture=ResourceLoader.load("res://Resources/Sprites/Heart_.tres")
+		$Sprite2D.texture=ResourceLoader.load("res://Resources/Sprites/Heart_Full.tres")
 	elif heartStatus == 1:
 		$Sprite2D.texture=ResourceLoader.load("res://Resources/Sprites/Heart_Half.tres")
 	elif heartStatus == 0:
